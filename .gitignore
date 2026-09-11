@@ -1,0 +1,30 @@
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# IDA Pro
+*.id0
+*.id1
+*.id2
+*.idb
+*.i64
+*.nam
+*.til
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# OS & Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

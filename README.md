@@ -14,3 +14,27 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 
 子小題
 - macro-hard: macrohard azuer\macro-hard
+
+# Pwn
+## huge binary 2
+I AM PLEASE TO REPORT THAT THE UNITED STATES OF CTF HAS BUILT AN EVEN HUGER BINARY. THANK YOU FOR YOUR ATTENTION TO THIS MATTER
+
+Connection command: nc chal.secso.cc 4005
+
+file huge_binary_2/
+
+## ihyh
+encouraging hatred, because love hurt me
+
+Connection command: nc chal.secso.cc 4007
+
+file ihyh/
+
+# Osint
+## larpfest
+題目敘述：
+```
+This guy has the larp turned up to 100. It looks like he left OPSEC at 0 though.
+
+The flag is (or was...) somewhere in this repo: https://github.com/larp-larp-larp/larp
+```

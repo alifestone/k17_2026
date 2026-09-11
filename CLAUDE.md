@@ -5,15 +5,8 @@ All flags will start with K17{ and end with }, unless otherwise specified. e.g. 
 Start Time: September 11 @ 10:00AM (UTC)
 Duration: 24h
 
-# Web
-主頁面
-https://instantiator.secso.cc/
-![alt text](image.png)
-
-To AI agent: Web 的每個子小題都有時間限制（15 分鐘），如果需要個小題的 url 請問我
-
-子小題
-- macro-hard: macrohard azuer\macro-hard
+# 題目
+各小題資訊請看 README.md
 
 # Other
 可以使用 tool list 中的工具
