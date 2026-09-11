@@ -1,0 +1,19 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PORT=8000
+
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ .
+
+EXPOSE 8000
+
+# The flag is supplied via the FLAG environment variable at run time.
+# It is deliberately never copied into the image or written to disk:
+# the challenge must not be solvable by reading a flag file.
+CMD ["python3", "app.py"]

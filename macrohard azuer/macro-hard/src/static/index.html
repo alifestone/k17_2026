@@ -1,0 +1,308 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Macrohard Azuer</title>
+<style>
+  :root {
+    --az-blue: #0078d4;
+    --az-blue-hover: #106ebe;
+    --az-header: #0b1d34;
+    --az-rail: #f3f2f1;
+    --az-border: #e1dfdd;
+    --az-text: #242424;
+    --az-sub: #605e5c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    color: var(--az-text);
+    background: #faf9f8;
+    font-size: 14px;
+  }
+
+  /* top bar */
+  header {
+    background: var(--az-header);
+    color: #fff;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 12px;
+  }
+  .burger { font-size: 18px; opacity: .85; cursor: default; }
+  .brand { display: flex; align-items: center; gap: 8px; font-weight: 600; white-space: nowrap; }
+  .logo { width: 22px; height: 22px; }
+  .brand .tag { font-weight: 400; opacity: .6; font-size: 12px; border-left: 1px solid rgba(255,255,255,.25); padding-left: 8px; }
+  .search {
+    flex: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #cfe2f5;
+    height: 30px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+  .icons { display: flex; gap: 14px; opacity: .85; font-size: 15px; }
+  .avatar {
+    background: #c239b3; color: #fff; border-radius: 50%;
+    width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600;
+  }
+
+  /* breadcrumb */
+  .crumb { padding: 8px 20px; color: var(--az-sub); font-size: 13px; background: #faf9f8; border-bottom: 1px solid var(--az-border); }
+  .crumb b { color: var(--az-text); font-weight: 600; }
+
+  /* layout */
+  .shell { display: flex; min-height: calc(100vh - 89px); }
+  nav.rail { width: 220px; background: var(--az-rail); border-right: 1px solid var(--az-border); padding: 8px 0; flex-shrink: 0; }
+  nav.rail a { display: flex; align-items: center; gap: 10px; padding: 7px 16px; color: var(--az-text); text-decoration: none; font-size: 13px; cursor: default; }
+  nav.rail a:hover { background: #e8e6e4; }
+  nav.rail a.active { background: #e1effb; box-shadow: inset 3px 0 0 var(--az-blue); font-weight: 600; }
+  nav.rail .ni { width: 16px; text-align: center; opacity: .7; }
+  nav.rail .create { color: var(--az-blue); font-weight: 600; }
+  nav.rail .sep { height: 1px; background: var(--az-border); margin: 8px 12px; }
+
+  main { flex: 1; padding: 16px 24px 40px; max-width: 980px; }
+  .page-title { font-size: 20px; font-weight: 600; margin: 4px 0 2px; }
+  .page-sub { color: var(--az-sub); margin-bottom: 14px; }
+
+  /* command bar */
+  .cmdbar { display: flex; gap: 2px; border-bottom: 1px solid var(--az-border); margin-bottom: 18px; padding-bottom: 6px; flex-wrap: wrap; }
+  .cmdbar button {
+    background: none; border: none; color: var(--az-blue); font-size: 13px;
+    padding: 5px 10px; cursor: pointer; border-radius: 2px; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .cmdbar button:hover { background: #f3f2f1; }
+
+  /* blades */
+  .blade {
+    background: #fff; border: 1px solid var(--az-border); border-radius: 2px;
+    box-shadow: 0 1.6px 3.6px rgba(0,0,0,.08), 0 .3px .9px rgba(0,0,0,.05);
+    padding: 16px 18px; margin-bottom: 16px;
+  }
+  .blade h2 { font-size: 14px; font-weight: 600; margin: 0 0 2px; }
+  .blade .desc { color: var(--az-sub); font-size: 12px; margin-bottom: 12px; }
+  .row { margin: 8px 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  label { display: inline-block; width: 80px; color: var(--az-sub); font-size: 13px; }
+
+  input[type=text], input:not([type]), input[type=number], select {
+    border: 1px solid #8a8886; border-radius: 2px; padding: 5px 8px; font-size: 13px; font-family: inherit;
+    background: #fff; color: var(--az-text);
+  }
+  input:focus, select:focus { outline: none; border-color: var(--az-blue); box-shadow: 0 0 0 1px var(--az-blue); }
+  input[type=number] { width: 120px; }
+  select#member { min-width: 240px; }
+  #account { min-width: 340px; }
+
+  button.btn {
+    background: var(--az-blue); color: #fff; border: 1px solid var(--az-blue);
+    padding: 5px 14px; font-size: 13px; border-radius: 2px; cursor: pointer; font-family: inherit;
+  }
+  button.btn:hover { background: var(--az-blue-hover); border-color: var(--az-blue-hover); }
+  button.ghost { background: #fff; color: var(--az-text); border: 1px solid #8a8886; }
+  button.ghost:hover { background: #f3f2f1; }
+  input[type=file] { font-size: 13px; }
+
+  .statuspill { font-size: 12px; padding: 2px 10px; border-radius: 10px; background: #eef; color: #555; }
+
+  .out-head { display: flex; align-items: center; justify-content: space-between; }
+  pre { background: #1e1e1e; color: #d4d4d4; padding: 12px; white-space: pre-wrap; word-break: break-word;
+        border-radius: 2px; font-family: "Cascadia Code", Consolas, monospace; font-size: 12.5px; margin: 8px 0 0; max-height: 360px; overflow: auto; }
+  @media (max-width: 720px) { nav.rail { display: none; } main { padding: 14px 14px 40px; } }
+</style>
+
+<header>
+  <span class="burger">&#9776;</span>
+  <span class="brand">
+    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#3ccbf4"/><stop offset="1" stop-color="#0063b1"/>
+      </linearGradient></defs>
+      <path d="M9 3L2.5 20h4.2l1.3-3.7h6.1L10.9 9.3 13 3H9z" fill="url(#g)"/>
+      <path d="M13.5 8l3 8H11l-1 2.6H21.5L15.5 3.2 13.5 8z" fill="url(#g)" opacity=".85"/>
+    </svg>
+    Macrohard Azuer
+    <span class="tag">more azure than azure</span>
+  </span>
+  <div class="search">&#128269;&nbsp; Search resources, services, and docs (G+/)</div>
+  <div class="icons"><span>&#9993;</span><span>&#128276;</span><span>&#9881;</span><span>?</span></div>
+  <div class="avatar">K17</div>
+</header>
+
+<div class="crumb">Home &rsaquo; Resource groups &rsaquo; <b>Organisation console</b></div>
+
+<div class="shell">
+  <nav class="rail">
+    <a class="create">&#43;&nbsp; Create a resource</a>
+    <div class="sep"></div>
+    <a><span class="ni">&#127968;</span> Home</a>
+    <a><span class="ni">&#128202;</span> Dashboard</a>
+    <a><span class="ni">&#9776;</span> All services</a>
+    <a><span class="ni">&#128193;</span> Resource groups</a>
+    <a class="active"><span class="ni">&#128100;</span> Organisation console</a>
+    <a><span class="ni">&#128274;</span> Access control (IAM)</a>
+    <a><span class="ni">&#9729;</span> Storage accounts</a>
+    <a><span class="ni">&#128221;</span> Activity log</a>
+  </nav>
+
+  <main>
+    <div class="page-title">Organisation console</div>
+    <div class="page-sub">Manage members of your Azuer organisation and their compute allocation.</div>
+
+    <div class="cmdbar">
+      <button onclick="createMember()">&#43; Create member</button>
+      <button onclick="loadMembers()">&#8635; Refresh</button>
+      <button onclick="loadSettings()">&#128194; Load settings</button>
+      <button onclick="select()">&#9654; Select</button>
+      <button onclick="permissions()">&#128274; Permissions</button>
+      <button onclick="doExport()">&#8682; Export</button>
+    </div>
+
+    <section class="blade">
+      <h2>Member</h2>
+      <div class="desc">Select a member resource to view and edit its allocation, or provision a new one.</div>
+      <div class="row">
+        <label for="member">Resource</label>
+        <select id="member"></select>
+        <button class="ghost" onclick="loadMembers()">Refresh</button>
+      </div>
+      <div class="row">
+        <label for="newName">New</label>
+        <input id="newName" type="text" placeholder="new member name">
+        <button class="btn" onclick="createMember()">Create</button>
+      </div>
+    </section>
+
+    <section class="blade">
+      <h2>Compute allocation</h2>
+      <div class="desc">Editable quotas for the selected member. Ownership and role are managed by the platform.</div>
+      <div class="row"><label for="vcpu">vCPU</label><input id="vcpu" type="number"></div>
+      <div class="row"><label for="quota">Quota</label><input id="quota" type="number"></div>
+      <div class="row"><label for="capacity">Capacity</label><input id="capacity" type="number"></div>
+      <div class="row"><button class="btn" onclick="saveSettings()">Save</button></div>
+    </section>
+
+    <section class="blade">
+      <h2>Access control &amp; export</h2>
+      <div class="desc">Load an account's permissions from the accounts service, then export if authorised.</div>
+      <div class="row">
+        <label for="account">Account</label>
+        <input id="account" type="text" placeholder="account source">
+      </div>
+      <div class="row">
+        <button class="ghost" onclick="select()">Select</button>
+        <button class="ghost" onclick="permissions()">Check permissions</button>
+        <button class="btn" onclick="doExport()">Export</button>
+        <span id="elev" class="statuspill">not elevated</span>
+      </div>
+    </section>
+
+    <section class="blade">
+      <h2>Import records</h2>
+      <div class="desc">Bulk-import member records (JSON). Each record names its own account.</div>
+      <div class="row">
+        <input id="impFiles" type="file" multiple>
+        <button class="btn" onclick="importBundle()">Import</button>
+      </div>
+    </section>
+
+    <section class="blade">
+      <div class="out-head"><h2>Activity</h2><span style="color:var(--az-sub);font-size:12px">last response</span></div>
+      <pre id="out">Ready.</pre>
+    </section>
+  </main>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const log = x => { $('out').textContent = typeof x === 'string' ? x : JSON.stringify(x, null, 2); };
+const member = () => $('member').value;
+const setElev = on => { const e = $('elev'); e.textContent = on ? 'elevated' : 'not elevated';
+  e.style.background = on ? '#dff6dd' : '#eef'; e.style.color = on ? '#0e700e' : '#555'; };
+
+async function loadMembers() {
+  const d = await (await fetch('/members')).json();
+  const sel = $('member');
+  const prev = sel.value;
+  sel.innerHTML = '';
+  for (const m of d.members) {
+    const o = document.createElement('option');
+    o.value = m.member; o.textContent = m.member;
+    sel.appendChild(o);
+  }
+  if ([...sel.options].some(o => o.value === prev)) sel.value = prev;
+  log(d);
+  if (sel.value) { syncAccount(); await loadSettings(); }
+}
+
+async function loadSettings() {
+  const u = member();
+  if (!u) return;
+  const d = await (await fetch('/members/' + encodeURIComponent(u) + '/settings')).json();
+  if (d.settings) {
+    $('vcpu').value = d.settings.vcpu ?? 0;
+    $('quota').value = d.settings.quota ?? 0;
+    $('capacity').value = d.settings.capacity ?? 0;
+  }
+  log(d);
+}
+
+async function createMember() {
+  const name = $('newName').value;
+  const r = await fetch('/members', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username: name }),
+  });
+  log(await r.json());
+  await loadMembers();
+  const sel = $('member');
+  if ([...sel.options].some(o => o.value === name)) { sel.value = name; syncAccount(); await loadSettings(); }
+}
+
+async function saveSettings() {
+  const body = { vcpu: +$('vcpu').value, quota: +$('quota').value, capacity: +$('capacity').value };
+  const r = await fetch('/members/' + encodeURIComponent(member()) + '/settings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  log(await r.json());
+}
+
+async function importBundle() {
+  const fd = new FormData();
+  for (const f of $('impFiles').files) fd.append('files', f, f.name);
+  const r = await fetch('/upload', { method: 'POST', body: fd });
+  try { log(await r.json()); } catch (e) { log('status ' + r.status); }
+}
+
+async function select() {
+  const r = await fetch('/console/select', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'account=' + encodeURIComponent($('account').value),
+  });
+  log(await r.json());
+}
+async function permissions() {
+  const d = await (await fetch('/console/permissions')).json();
+  setElev(!!d.elevated);
+  log(d);
+}
+async function doExport() { log(await (await fetch('/console/export')).json()); }
+
+// convenience: default the Access-control account to the picked member (still editable)
+function syncAccount() { $('account').value = member(); }
+$('member').onchange = () => { syncAccount(); loadSettings(); };
+
+loadMembers();
+</script>
