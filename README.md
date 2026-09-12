@@ -13,7 +13,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 題目資料來源：`https://api-k17ctf.secso.cc/challenges`（scoreboard 前端用的 API，公開不需登入）。
 附件已全部下載到 `challenges/<slug>/`，`handout.zip` 另外解壓到 `challenges/<slug>/handout/`。
 
-# 解題進度：11 / 37
+# 解題進度：12 / 37
 
 | slug | title | category | flag |
 |------|-------|----------|------|
@@ -28,13 +28,14 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | p-np | P = NP | misc | `K17{i_have_discovered_a_truly_marvellous_flag_which_this_box_is_too_simple_to_contain}` |
 | close-enough | close enough | forensics | `SCONES{y0u_got_m3_out_of_a_p1ckle}` |
 | cryjail | cryjail | crypto,misc | `K17{yaaaaaaay_i_h0pE_yoU_D1dn7_cra5H_0Ut!!!!!!!!!!!}` |
+| duplex | Duplex | web | `K17{un4_p3t1t10_dupl3x_53n5u5...}` |
 
 # 題目總覽（37 題）
 
 | id | slug | title | categories | difficulty | solves | 狀態 |
 |---:|------|-------|------------|-----------|-------:|:---:|
 | 3 | driveone | DriveOne | web | hard | 177 |  |
-| 4 | duplex | Duplex | web | hard | 187 |  |
+| 4 | duplex | Duplex | web | hard | 187 |  ✅ |
 | 5 | edwalk | edwalk | beginner,web | beginner | 429 |  |
 | 6 | macro-hard | macrohard azuer | web | medium | 233 | ✅ |
 | 7 | polynomial-eval | polynomial evaluator | web | medium | 160 |  |
@@ -119,6 +120,7 @@ file `challenges/driveone/`：`handout.zip` (324646 B)
 
 ## Duplex
 id=4 / slug=`duplex` / categories: web / difficulty: hard / solves: 187
+**狀態：✅ 已解**　flag: `K17{un4_p3t1t10_dupl3x_53n5u5...}`
 
 題目敘述：
 ```
