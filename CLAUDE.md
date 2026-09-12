@@ -46,3 +46,21 @@ Duration: 24h
 
 4. 任務完成的認定只看 handover.md 的 `Acceptance` 欄位是否被寫成
    `accepted by <human/reviewer> at <head_sha>`——沒人簽收之前一律視為未完成。
+
+## 自動啟動 dolphin_cyber:tools（給有 shell 權限的 session，例如 Opus）
+
+如果你需要 dolphin_cyber:tools 協助（例如需要牠的 cybersecurity 專長分析某個 challenge），
+但 `ListAgents` 裡沒看到它在線上，不要等使用者手動開，自己用背景執行的方式啟動它：
+
+```bash
+nohup ollama launch claude --model dolphin_cyber:tools >/tmp/dolphin_cyber_launch.log 2>&1 &
+```
+
+啟動後給它幾秒鐘完成初始化（它需要載入模型），再重新呼叫 `ListAgents` 確認它已出現在名單裡，
+然後才透過 `handover.md`／`SendMessage` 跟它交接工作（實際規則見上面「Cross-Session 協作協定」）。
+
+注意事項：
+- 不要重複啟動：先檢查 `ListAgents`，如果 dolphin_cyber:tools 已經在線就不要再開一個新的。
+- 這個指令會開一個新的長駐 session，不是一次性任務——用完不需要主動關閉它，讓它留著給後續
+  訊息使用即可，除非使用者要求關閉。
+- 如果背景啟動後多次確認仍未出現在 `ListAgents`，停止重試並回報使用者，不要無限重複啟動。
