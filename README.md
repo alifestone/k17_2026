@@ -13,7 +13,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 題目資料來源：`https://api-k17ctf.secso.cc/challenges`（scoreboard 前端用的 API，公開不需登入）。
 附件已全部下載到 `challenges/<slug>/`，`handout.zip` 另外解壓到 `challenges/<slug>/handout/`。
 
-# 解題進度：20 / 37
+# 解題進度：21 / 37
 
 | slug | title | category | flag |
 |------|-------|----------|------|
@@ -37,6 +37,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | edwalk | edwalk | beginner,web | `K17{m3_wh3n_1_v1b3c0de_&^%8}` |
 | rainier | rainier | osint | `K17{Victoria,Middle}` |
 | huge-binary-easy | huge binary 1 | pwn | `K17{it's_ab0v3_aver@ge_actua1ly}` |
+| waf | waf | pwn | `K17{ma_a1n7_pr0uD_0f_me_n0_m0r3}` |
 
 # 題目總覽（37 題）
 
@@ -73,7 +74,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | 31 | make-a-wish | make-a-wish | pwn | medium | 145 |  |
 | 32 | notjson | not json | pwn | hard | 103 |  |
 | 33 | online-roulette | online-roulette | beginner,pwn | beginner | 279 |  ✅ |
-| 34 | waf | waf | pwn | medium | 118 |  |
+| 34 | waf | waf | pwn | medium | 118 |  ✅ |
 | 35 | etchasketch | etch-a-sketch | rev | easy | 331 |  ✅ |
 | 36 | evilgram | Evilgram | rev | medium | 255 |  |
 | 37 | monoid | monoid | rev | medium | 275 |  |
@@ -316,6 +317,7 @@ file `challenges/online-roulette/`：`chal.c` (2577 B)
 
 ## waf
 id=34 / slug=`waf` / categories: pwn / difficulty: medium / solves: 118
+**狀態：✅ 已解**　flag: `K17{ma_a1n7_pr0uD_0f_me_n0_m0r3}`
 
 題目敘述：
 ```

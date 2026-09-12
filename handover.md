@@ -4,7 +4,7 @@ owner: k17-2026-6a (Opus) — planner **兼** executor
 （原訂 executor dolphin_cyber:tools 已停用，理由見下方 Decisions 第 4 點）
 updated_at: 2026-09-12
 base_sha: de8a200209387cdab1fb99a6a872ff6b3c1f485f
-head_sha: 6fb9703  （更新規則：跟著解題 commit 一起改，不另開 sync commit）
+head_sha: (see git log; updated with each solve commit)
 
 ## Scope
 完成 README.md 中 37 題裡尚未解出的 31 題。已解 6 題（sanity-check / discord /
