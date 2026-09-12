@@ -13,7 +13,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 題目資料來源：`https://api-k17ctf.secso.cc/challenges`（scoreboard 前端用的 API，公開不需登入）。
 附件已全部下載到 `challenges/<slug>/`，`handout.zip` 另外解壓到 `challenges/<slug>/handout/`。
 
-# 解題進度：19 / 37
+# 解題進度：20 / 37
 
 | slug | title | category | flag |
 |------|-------|----------|------|
@@ -36,6 +36,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | reverse-captcha | reverse captcha | beginner,rev,web | `K17{y0u_w1ll_noW_b3_sp@red_froM_tHe_AI_rev0lu+1on}` |
 | edwalk | edwalk | beginner,web | `K17{m3_wh3n_1_v1b3c0de_&^%8}` |
 | rainier | rainier | osint | `K17{Victoria,Middle}` |
+| huge-binary-easy | huge binary 1 | pwn | `K17{it's_ab0v3_aver@ge_actua1ly}` |
 
 # 題目總覽（37 題）
 
@@ -65,7 +66,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | 24 | larpfest | larpfest | osint | easy | 306 | ✅ |
 | 25 | rainier | rainier | osint | beginner | 413 |  ✅ |
 | 26 | big-win | big-win | pwn | easy | 259 |  ✅ |
-| 27 | huge-binary-easy | huge binary 1 | pwn | easy | 230 |  |
+| 27 | huge-binary-easy | huge binary 1 | pwn | easy | 230 |  ✅ |
 | 28 | huge-binary | huge binary 2 | pwn | hard | 102 | ✅ |
 | 29 | ihyh | ihyh | pwn | hard | 108 | ✅ |
 | 30 | java-notes | java notes | pwn | medium | 164 |  |
@@ -213,6 +214,7 @@ file `challenges/big-win/`：`chal.c` (1397 B)
 
 ## huge binary 1
 id=27 / slug=`huge-binary-easy` / categories: pwn / difficulty: easy / solves: 230
+**狀態：✅ 已解**　flag: `K17{it's_ab0v3_aver@ge_actua1ly}`
 
 題目敘述：
 ```
