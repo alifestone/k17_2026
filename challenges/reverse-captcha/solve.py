@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+"""reverse captcha -- the flag never leaves the browser, so just run the decoder.
+
+app.js ships printFlag(), which is gated only on client-side state:
+
+    if (state !== String.fromCharCode(99,111,109,112,108,101,116,101)   // "complete"
+        || !Number.isInteger(numCorrect) || numCorrect < requiredCorrect) return false;
+
+and then decodes a hardcoded byte array with a rolling XOR whose seed depends
+only on len("complete"):
+
+    let k = 0x35 + state.length * 0x11;
+    decode(_0x91, (b, i) => { k = (k*0x21 + i + 0x11) & 0xff; return b ^ k; })
+
+Nothing is fetched from the server, so solving ten timed captchas is optional --
+the same arithmetic reproduces the flag offline.
+"""
+DATA = [0x25, 0x71, 0x64, 0xbc, 0xc5, 0x62, 0xdc, 0xbe, 0x6d, 0x45,
+        0x63, 0x67, 0xd7, 0xc8, 0xea, 0x12, 0x59, 0x8a, 0x38, 0xd0,
+        0xe7, 0x4a, 0xe1, 0x9b, 0x57, 0xf8, 0x18, 0x35, 0x92, 0x61,
+        0xb0, 0x92, 0xea, 0xd8, 0xa6, 0x08, 0x2d, 0x6b, 0xc6, 0x83,
+        0x2f, 0xb2, 0x4f, 0xf7, 0x4d, 0x5d, 0x44, 0x3a, 0x58, 0x45]
+
+k = 0x35 + len("complete") * 0x11
+out = bytearray()
+for i, b in enumerate(DATA):
+    k = (k * 0x21 + i + 0x11) & 0xFF
+    out.append(b ^ k)
+print(out.decode())

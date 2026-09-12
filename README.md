@@ -13,7 +13,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 題目資料來源：`https://api-k17ctf.secso.cc/challenges`（scoreboard 前端用的 API，公開不需登入）。
 附件已全部下載到 `challenges/<slug>/`，`handout.zip` 另外解壓到 `challenges/<slug>/handout/`。
 
-# 解題進度：16 / 37
+# 解題進度：18 / 37
 
 | slug | title | category | flag |
 |------|-------|----------|------|
@@ -33,6 +33,8 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | etchasketch | etch-a-sketch | rev | `K17{my_masterpiece}` |
 | online-roulette | online-roulette | beginner,pwn | `K17{th1s_minib0lt_guy_must_b3_rlly_lucky_huh}` |
 | big-win | big-win | pwn | `K17{maybe_the_true_reward_is_the_stacks_we_pwned_along_the_way}` |
+| reverse-captcha | reverse captcha | beginner,rev,web | `K17{y0u_w1ll_noW_b3_sp@red_froM_tHe_AI_rev0lu+1on}` |
+| edwalk | edwalk | beginner,web | `K17{m3_wh3n_1_v1b3c0de_&^%8}` |
 
 # 題目總覽（37 題）
 
@@ -40,7 +42,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 |---:|------|-------|------------|-----------|-------:|:---:|
 | 3 | driveone | DriveOne | web | hard | 177 |  |
 | 4 | duplex | Duplex | web | hard | 187 |  ✅ |
-| 5 | edwalk | edwalk | beginner,web | beginner | 429 |  |
+| 5 | edwalk | edwalk | beginner,web | beginner | 429 |  ✅ |
 | 6 | macro-hard | macrohard azuer | web | medium | 233 | ✅ |
 | 7 | polynomial-eval | polynomial evaluator | web | medium | 160 |  |
 | 8 | whatsnew | whatsNew | web | hard | 139 |  |
@@ -73,7 +75,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | 35 | etchasketch | etch-a-sketch | rev | easy | 331 |  ✅ |
 | 36 | evilgram | Evilgram | rev | medium | 255 |  |
 | 37 | monoid | monoid | rev | medium | 275 |  |
-| 38 | reverse-captcha | reverse captcha | beginner,rev,web | beginner | 431 |  |
+| 38 | reverse-captcha | reverse captcha | beginner,rev,web | beginner | 431 |  ✅ |
 | 39 | srev | srev | rev | hard | 199 |  |
 
 # Meta
@@ -138,6 +140,7 @@ file `challenges/duplex/`：`handout.zip` (324145 B)
 
 ## edwalk
 id=5 / slug=`edwalk` / categories: beginner, web / difficulty: beginner / solves: 429
+**狀態：✅ 已解**　flag: `K17{m3_wh3n_1_v1b3c0de_&^%8}`
 
 題目敘述：
 ```
@@ -428,6 +431,7 @@ file `challenges/monoid/`：`Main.dump-asm` (100977 B), `Main.dump-simpl` (28590
 
 ## reverse captcha
 id=38 / slug=`reverse-captcha` / categories: beginner, rev, web / difficulty: beginner / solves: 431
+**狀態：✅ 已解**　flag: `K17{y0u_w1ll_noW_b3_sp@red_froM_tHe_AI_rev0lu+1on}`
 
 題目敘述：
 ```
