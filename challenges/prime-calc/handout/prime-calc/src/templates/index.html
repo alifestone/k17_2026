@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Prime Calc</title>
+  <style>
+    body { max-width: 50rem; margin: 2rem auto; padding: 0 1rem; }
+    .controls { max-width: 30rem; }
+    .controls input { display: block; box-sizing: border-box; width: 100%; margin-top: 0.25rem; }
+    .action { display: flex; align-items: center; gap: 0.5rem; margin: 0.75rem 0; }
+    .message { min-height: 1.25rem; }
+    hr { margin: 1.2rem 0; }
+    pre { margin-top: 0; padding: 1rem; border: 1px solid; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .rainbow-prime { font-weight: bold; animation: rainbow 2s linear infinite alternate; }
+    @keyframes rainbow {
+      0% { color: red; }
+      17% { color: orange; }
+      33% { color: gold; }
+      50% { color: green; }
+      67% { color: blue; }
+      83% { color: indigo; }
+      100% { color: violet; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Prime Calc</h1>
+  <p>calc is short for calculator btw</p>
+  <h2>Generated primes</h2>
+  <div class="action">
+    <button id="run">Generate new batch</button>
+    <span id="run-message" class="message" aria-live="polite"></span>
+  </div>
+  <pre id="primes"><code>{% for prime in primes %}<span{% if prime == '67' %} class="rainbow-prime"{% endif %}>{{ prime }}</span>{% if not loop.last %}
+
+{% endif %}{% endfor %}</code></pre>
+  <hr>
+  <div class="controls">
+    <form action="/api/snapshot" method="get" class="action">
+      <button type="submit">Download current snapshot</button>
+    </form>
+    <h3>Upload Config</h3>
+    <input id="config" type="file" accept="application/json,.json">
+    <div class="action">
+      <button id="upload">Apply config</button>
+      <span id="config-message" class="message" aria-live="polite"></span>
+    </div>
+  </div>
+  <script>
+    const runMessage = document.querySelector('#run-message');
+    const configMessage = document.querySelector('#config-message');
+    const primes = document.querySelector('#primes');
+    function showPrimes(output) {
+      const fragment = document.createDocumentFragment();
+      output.trim().split(/\s+/).filter(Boolean).forEach((value, index) => {
+        if (index) fragment.append('\n\n');
+        const prime = document.createElement('span');
+        prime.textContent = value;
+        if (value === '67') prime.className = 'rainbow-prime';
+        fragment.append(prime);
+      });
+      primes.replaceChildren(fragment);
+    }
+    document.querySelector('#upload').onclick = async () => {
+      const file = document.querySelector('#config').files[0];
+      if (!file) { configMessage.textContent = 'Choose a config file first.'; return; }
+      const data = new FormData();
+      data.append('config', file);
+      data.append('timestamp', String(Date.now()));
+      const response = await fetch('/api/config', {method: 'POST', body: data});
+      const body = await response.json();
+      configMessage.textContent = response.ok
+        ? `Using ${body.method} search from ${body.initial_search_value}.`
+        : body.error;
+    };
+    document.querySelector('#run').onclick = async () => {
+      runMessage.textContent = 'Generating…';
+      const response = await fetch('/api/run', {method: 'POST'});
+      const body = await response.json();
+      if (response.ok) { showPrimes(body.output); runMessage.textContent = ''; }
+      else { runMessage.textContent = body.stderr || 'Generation failed.'; }
+    };
+  </script>
+</body>
+</html>

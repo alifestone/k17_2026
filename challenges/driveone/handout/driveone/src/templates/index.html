@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DriveOne</title>
+    <style>
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background-color: #e5e5e5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 20px;
+            border-bottom: 3px solid #ff9900;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        .header .subtitle {
+            font-size: 12px;
+            color: #ccc;
+        }
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .section {
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #003366;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        .flash {
+            background-color: #ffcccc;
+            border: 1px solid #ff0000;
+            color: #cc0000;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #e0e0e0;
+        }
+        a {
+            color: #0000ee;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        input[type="text"], input[type="file"] {
+            padding: 4px;
+            border: 1px solid #aaa;
+            margin-bottom: 10px;
+        }
+        button, input[type="submit"] {
+            background-color: #f0f0f0;
+            border: 1px solid #999;
+            padding: 5px 15px;
+            cursor: pointer;
+            color: #333;
+            font-size: 14px;
+        }
+        button:hover, input[type="submit"]:hover {
+            background-color: #e0e0e0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            margin-top: 40px;
+        }
+        .ad-left {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            width: 250px;
+        }
+        .ad-right {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 250px;
+        }
+        .ad-left img, .ad-right img {
+            width: 100%;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>DriveOne</h1>
+    <div class="subtitle">safe free file hosting no virus</div>
+</div>
+
+{% if ads and ads|length >= 2 %}
+<div class="ad-left">
+    <img src="{{ url_for('static', filename=ads[0]) }}">
+</div>
+<div class="ad-right">
+    <img src="{{ url_for('static', filename=ads[1]) }}">
+</div>
+{% endif %}
+
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="flash">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="section">
+        <h2>Upload File</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required style="width: 300px;"><br>
+            <label for="file">File:</label><br>
+            <input type="file" id="file" name="file" required><br>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Hosted Files</h2>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>File ID</th>
+                <th>Last Downloaded</th>
+                <th>Download</th>
+            </tr>
+            {% for file in files %}
+            <tr>
+                <td>{{ file.title }}</td>
+                <td style="font-family: monospace; font-size: 12px; color: #555;">{{ file.file_id }}</td>
+                <td style="font-size: 12px;">{{ file.last_viewed }}</td>
+                <td><a href="/read/{{ file.file_id }}" target="_blank">Download</a></td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" style="text-align: center; color: #777;">No files uploaded yet.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="section" style="background-color: #eef5eb; border-color: #c3d9bc;">
+        <h2 style="color: #38592c;">Backup and Restore</h2>
+        <p style="font-size: 13px; color: #555;">Use these tools to backup or restore your DriveOne data.</p>
+        <a href="/export"><button type="button">Export Data</button></a>
+        
+        <form action="/import" method="post" enctype="multipart/form-data" style="margin-top: 15px; border-top: 1px dotted #ccc; padding-top: 15px;">
+            <label style="font-size: 13px;">Import Data:</label>
+            <input type="file" name="file" accept=".zip" required>
+            <button type="submit">Restore</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        &copy; 2008 DriveOne File Hosting. No copyright infringement intended.
+    </div>
+</div>
+
+</body>
+</html>

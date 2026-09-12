@@ -1,0 +1,42 @@
+# while our actual infra is slightly different from this docker compose
+# file, their behaviour should be equivalent, i.e.
+# the application does not have external internet access
+
+services:
+  gateway:
+    image: alpine/socat
+    command: TCP-LISTEN:8000,fork,reuseaddr TCP:url-parse:8000
+    ports:
+      - "9999:8000"
+    networks:
+      - edge
+      - backend
+    depends_on:
+      - url-parse
+
+  url-parse:
+    build:
+      context: .
+      dockerfile: Dockerfile.handout
+    environment:
+      - FLAG=K17{example_flag}
+      - API_BASE=http://accounts.internal/api/
+    networks:
+      - backend
+    depends_on:
+      - accounts
+
+  accounts:
+    image: python:3.12-slim
+    command: python /accounts.py
+    volumes:
+      - ./accounts.py:/accounts.py:ro
+    networks:
+      backend:
+        aliases:
+          - accounts.internal
+
+networks:
+  edge: {}
+  backend:
+    internal: true
