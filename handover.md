@@ -4,7 +4,7 @@ owner: k17-2026-6a (Opus) — planner **兼** executor
 （原訂 executor dolphin_cyber:tools 已停用，理由見下方 Decisions 第 4 點）
 updated_at: 2026-09-12
 base_sha: de8a200209387cdab1fb99a6a872ff6b3c1f485f
-head_sha: 06baf38bd8e1db6c3ba185132001c1089b56b24f （= 上一個 commit；本檔的 head_sha 之後改成跟解題 commit 一起更新，不再另開 sync commit）
+head_sha: 6fb9703  （更新規則：跟著解題 commit 一起改，不另開 sync commit）
 
 ## Scope
 完成 README.md 中 37 題裡尚未解出的 31 題。已解 6 題（sanity-check / discord /
@@ -88,14 +88,19 @@ sss(crypto/medium) 需要 LLL lattice，planner 另外出 spec；
 verify-you-are-human 的 handout 在 Google Drive，需要先下載。
 
 ## Open questions
-1. Batch E 的 8 題要在 instantiator 開實例，需要使用者提供各題的即時 URL。
-2. `verify-you-are-human` 的 Google Drive handout 尚未下載，需確認是否可存取。
-3. discord / larpfest / macro-hard 三題雖已解但 flag 未記錄在 repo，要不要補回？
+1. prime-calc 需要對 DMTCP 映像做手術（本機無 docker/podman），見 `challenges/prime-calc/ANALYSIS.md`。
+2. verify-you-are-human 的 handout 在 Google Drive，尚未下載。
+3. discord / larpfest / macro-hard 三題已解但 flag 未記錄在 repo（scoreboard 上是已解狀態）。
 
 ## Next action
-分析目前佔住 3 個槽位的 instantiator 題目 handout（cryjail / duplex / prime-calc），
-寫好 exploit 後直接用現有實例打；打完 stop 讓出槽位給 driveone / whatsnew / spot /
-sudo-but-good / java-notes。同時推進不需要實例的離線題（Batch B）與 nc 題（Batch C）。
+20/37 已解且**全部已提交到 scoreboard**（提交流程：`?c=<slug>` 填框送出，再用
+`Authorization: Bearer <localStorage noctf-session-token>` 查 `solved_by_me` 驗證）。
+
+剩 17 題，順序：
+1. 離線 / 固定 port：notjson(4003)、make-a-wish(4004)、waf(4006)、blowfish(2001)、sss、
+   evilgram、monoid、srev、get-fixed-boi、verify-you-are-human
+2. 需要 instantiator 實例（目前 3 槽全空）：driveone、whatsnew、spot、sudobutgood、
+   java-notes、polynomial-eval、prime-calc
 
 ## Permission required
 - 任何 `git push` / 建 PR。
