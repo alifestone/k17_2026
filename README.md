@@ -13,7 +13,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 題目資料來源：`https://api-k17ctf.secso.cc/challenges`（scoreboard 前端用的 API，公開不需登入）。
 附件已全部下載到 `challenges/<slug>/`，`handout.zip` 另外解壓到 `challenges/<slug>/handout/`。
 
-# 解題進度：14 / 37
+# 解題進度：16 / 37
 
 | slug | title | category | flag |
 |------|-------|----------|------|
@@ -31,6 +31,8 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | duplex | Duplex | web | `K17{un4_p3t1t10_dupl3x_53n5u5...}` |
 | archive-trap | archive trap | misc | `K17{n0t_so_s3cr3t_4rchive}` |
 | etchasketch | etch-a-sketch | rev | `K17{my_masterpiece}` |
+| online-roulette | online-roulette | beginner,pwn | `K17{th1s_minib0lt_guy_must_b3_rlly_lucky_huh}` |
+| big-win | big-win | pwn | `K17{maybe_the_true_reward_is_the_stacks_we_pwned_along_the_way}` |
 
 # 題目總覽（37 題）
 
@@ -59,14 +61,14 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | 23 | get-fixed-boi | get fixed boi | forensics | medium | 214 |  |
 | 24 | larpfest | larpfest | osint | easy | 306 | ✅ |
 | 25 | rainier | rainier | osint | beginner | 413 |  |
-| 26 | big-win | big-win | pwn | easy | 259 |  |
+| 26 | big-win | big-win | pwn | easy | 259 |  ✅ |
 | 27 | huge-binary-easy | huge binary 1 | pwn | easy | 230 |  |
 | 28 | huge-binary | huge binary 2 | pwn | hard | 102 | ✅ |
 | 29 | ihyh | ihyh | pwn | hard | 108 | ✅ |
 | 30 | java-notes | java notes | pwn | medium | 164 |  |
 | 31 | make-a-wish | make-a-wish | pwn | medium | 145 |  |
 | 32 | notjson | not json | pwn | hard | 103 |  |
-| 33 | online-roulette | online-roulette | beginner,pwn | beginner | 279 |  |
+| 33 | online-roulette | online-roulette | beginner,pwn | beginner | 279 |  ✅ |
 | 34 | waf | waf | pwn | medium | 118 |  |
 | 35 | etchasketch | etch-a-sketch | rev | easy | 331 |  ✅ |
 | 36 | evilgram | Evilgram | rev | medium | 255 |  |
@@ -189,6 +191,7 @@ file `challenges/whatsnew/`：`handout.zip` (26015 B)
 
 ## big-win
 id=26 / slug=`big-win` / categories: pwn / difficulty: easy / solves: 259
+**狀態：✅ 已解**　flag: `K17{maybe_the_true_reward_is_the_stacks_we_pwned_along_the_way}`
 
 題目敘述：
 ```
@@ -283,6 +286,7 @@ file `challenges/notjson/`：`handout.zip` (4550 B)
 
 ## online-roulette
 id=33 / slug=`online-roulette` / categories: beginner, pwn / difficulty: beginner / solves: 279
+**狀態：✅ 已解**　flag: `K17{th1s_minib0lt_guy_must_b3_rlly_lucky_huh}`
 
 題目敘述：
 ```
