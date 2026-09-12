@@ -28,3 +28,4 @@ env/
 Thumbs.db
 .vscode/
 .idea/
+.relay_state.json
