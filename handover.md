@@ -3,7 +3,7 @@ task_id: k17-all-challenges
 owner: planner=k17-2026-6a (Opus) / executor=dolphin_cyber:tools (session `k17-2026-1d`)
 updated_at: 2026-09-12
 base_sha: de8a200209387cdab1fb99a6a872ff6b3c1f485f
-head_sha: de8a200209387cdab1fb99a6a872ff6b3c1f485f
+head_sha: 54a74a61038ef58f643ad1075285b137ed857df7
 
 ## Scope
 完成 README.md 中 37 題裡尚未解出的 31 題。已解 6 題（sanity-check / discord /
