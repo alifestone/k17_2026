@@ -13,7 +13,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 題目資料來源：`https://api-k17ctf.secso.cc/challenges`（scoreboard 前端用的 API，公開不需登入）。
 附件已全部下載到 `challenges/<slug>/`，`handout.zip` 另外解壓到 `challenges/<slug>/handout/`。
 
-# 解題進度：6 / 37
+# 解題進度：10 / 37
 
 | slug | title | category | flag |
 |------|-------|----------|------|
@@ -23,6 +23,10 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | macro-hard | macrohard azuer | web | （未記錄在 repo） |
 | huge-binary | huge binary 2 | pwn | `K17{turn$_0ut_siz3_do3s_m@tter}` |
 | ihyh | ihyh | pwn | `K17{50pp1n355_0f_l0v3_f1nd1ng_1t5_way_1n_f1l35!}` |
+| cry-pto | cry-pto | crypto | `K17{y0u_ar3_f1ll3d_w1th_deter1min4t10n}` |
+| leaky-rsa | leaky rsa | crypto | `K17{th3_t1tan1c_sh0uldv3_us3d_duct_t4p3}` |
+| p-np | P = NP | misc | `K17{i_have_discovered_a_truly_marvellous_flag_which_this_box_is_too_simple_to_contain}` |
+| close-enough | close enough | forensics | `SCONES{y0u_got_m3_out_of_a_p1ckle}` |
 
 # 題目總覽（37 題）
 
@@ -35,15 +39,15 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | 7 | polynomial-eval | polynomial evaluator | web | medium | 160 |  |
 | 8 | whatsnew | whatsNew | web | hard | 139 |  |
 | 9 | blowfish | blowfish | crypto | hard | 181 |  |
-| 10 | cry-pto | cry-pto | beginner,crypto | beginner | 409 |  |
+| 10 | cry-pto | cry-pto | beginner,crypto | beginner | 409 |  ✅ |
 | 11 | cryjail | cryjail | crypto,misc | hard | 161 |  |
-| 12 | leaky-rsa | leaky rsa | crypto | easy | 380 |  |
+| 12 | leaky-rsa | leaky rsa | crypto | easy | 380 |  ✅ |
 | 13 | sss | shamir secret spilling | crypto | medium | 258 |  |
 | 14 | discord | discord | meta | easy | 516 | ✅ |
 | 15 | sanity-check | sanity check | meta | beginner | 589 | ✅ |
 | 16 | archive-trap | archive trap | misc | easy | 301 |  |
-| 17 | close-enough | close enough | forensics | easy | 368 |  |
-| 18 | p-np | P = NP | beginner,misc | beginner | 421 |  |
+| 17 | close-enough | close enough | forensics | easy | 368 |  ✅ |
+| 18 | p-np | P = NP | beginner,misc | beginner | 421 |  ✅ |
 | 19 | verify-you-are-human | verify you are human | misc,forensics | medium | 207 |  |
 | 20 | prime-calc | prime calc | misc,web | hard | 123 |  |
 | 21 | spot | spot | misc | hard | 117 |  |
@@ -325,6 +329,7 @@ file `challenges/blowfish/`：`handout.zip` (1715 B)
 
 ## cry-pto
 id=10 / slug=`cry-pto` / categories: beginner, crypto / difficulty: beginner / solves: 409
+**狀態：✅ 已解**　flag: `K17{y0u_ar3_f1ll3d_w1th_deter1min4t10n}`
 
 題目敘述：
 ```
@@ -351,6 +356,7 @@ file `challenges/cryjail/`：`chall.py` (5826 B), `Dockerfile` (467 B)
 
 ## leaky rsa
 id=12 / slug=`leaky-rsa` / categories: crypto / difficulty: easy / solves: 380
+**狀態：✅ 已解**　flag: `K17{th3_t1tan1c_sh0uldv3_us3d_duct_t4p3}`
 
 題目敘述：
 ```
@@ -449,6 +455,7 @@ file `challenges/archive-trap/`：`handout.zip` (1111 B)
 
 ## P = NP
 id=18 / slug=`p-np` / categories: beginner, misc / difficulty: beginner / solves: 421
+**狀態：✅ 已解**　flag: `K17{i_have_discovered_a_truly_marvellous_flag_which_this_box_is_too_simple_to_contain}`
 
 題目敘述：
 ```
@@ -530,6 +537,7 @@ file `challenges/sudobutgood/`：`handout.zip` (5760 B)
 
 ## close enough
 id=17 / slug=`close-enough` / categories: forensics / difficulty: easy / solves: 368
+**狀態：✅ 已解**　flag: `SCONES{y0u_got_m3_out_of_a_p1ckle}`
 
 題目敘述：
 ```
