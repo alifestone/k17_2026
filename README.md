@@ -13,7 +13,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 題目資料來源：`https://api-k17ctf.secso.cc/challenges`（scoreboard 前端用的 API，公開不需登入）。
 附件已全部下載到 `challenges/<slug>/`，`handout.zip` 另外解壓到 `challenges/<slug>/handout/`。
 
-# 解題進度：12 / 37
+# 解題進度：14 / 37
 
 | slug | title | category | flag |
 |------|-------|----------|------|
@@ -29,6 +29,8 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | close-enough | close enough | forensics | `SCONES{y0u_got_m3_out_of_a_p1ckle}` |
 | cryjail | cryjail | crypto,misc | `K17{yaaaaaaay_i_h0pE_yoU_D1dn7_cra5H_0Ut!!!!!!!!!!!}` |
 | duplex | Duplex | web | `K17{un4_p3t1t10_dupl3x_53n5u5...}` |
+| archive-trap | archive trap | misc | `K17{n0t_so_s3cr3t_4rchive}` |
+| etchasketch | etch-a-sketch | rev | `K17{my_masterpiece}` |
 
 # 題目總覽（37 題）
 
@@ -47,7 +49,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | 13 | sss | shamir secret spilling | crypto | medium | 258 |  |
 | 14 | discord | discord | meta | easy | 516 | ✅ |
 | 15 | sanity-check | sanity check | meta | beginner | 589 | ✅ |
-| 16 | archive-trap | archive trap | misc | easy | 301 |  |
+| 16 | archive-trap | archive trap | misc | easy | 301 |  ✅ |
 | 17 | close-enough | close enough | forensics | easy | 368 |  ✅ |
 | 18 | p-np | P = NP | beginner,misc | beginner | 421 |  ✅ |
 | 19 | verify-you-are-human | verify you are human | misc,forensics | medium | 207 |  |
@@ -66,7 +68,7 @@ To AI agent: Web 的每個子小題都有時間限制，如果需要個小題的
 | 32 | notjson | not json | pwn | hard | 103 |  |
 | 33 | online-roulette | online-roulette | beginner,pwn | beginner | 279 |  |
 | 34 | waf | waf | pwn | medium | 118 |  |
-| 35 | etchasketch | etch-a-sketch | rev | easy | 331 |  |
+| 35 | etchasketch | etch-a-sketch | rev | easy | 331 |  ✅ |
 | 36 | evilgram | Evilgram | rev | medium | 255 |  |
 | 37 | monoid | monoid | rev | medium | 275 |  |
 | 38 | reverse-captcha | reverse captcha | beginner,rev,web | beginner | 431 |  |
@@ -385,6 +387,7 @@ file `challenges/sss/`：`chal.py` (1028 B), `out.txt` (7808 B)
 
 ## etch-a-sketch
 id=35 / slug=`etchasketch` / categories: rev / difficulty: easy / solves: 331
+**狀態：✅ 已解**　flag: `K17{my_masterpiece}`
 
 題目敘述：
 ```
@@ -447,6 +450,7 @@ file `challenges/srev/`：`srev` (92408 B)
 
 ## archive trap
 id=16 / slug=`archive-trap` / categories: misc / difficulty: easy / solves: 301
+**狀態：✅ 已解**　flag: `K17{n0t_so_s3cr3t_4rchive}`
 
 題目敘述：
 ```
